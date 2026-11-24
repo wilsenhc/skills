@@ -5,13 +5,13 @@ description: Group the current changes into logical commits with Conventional Co
 
 # Commit
 
-**Commit permission: this session, this once.** The `NEVER commit code to Git`
-rule in AGENTS.md is lifted here so you can write the commits for this request.
-It is lifted nowhere else: `/commit` runs in a child session that ends when the
-commits are done, so the parent session never receives this text. The permission
-is spent as soon as those commits exist — do not commit again in this session
-unless `/commit` runs again. Pushing, rebasing, amending published commits and
-opening pull requests stay forbidden.
+Invoke this skill only from an explicit user request to commit, for example
+`/commit`. That request is the authorization and the scope: commit only the
+changes it covers, in this repository, for this run. It does not carry over to
+another session, another repository, or a later request.
+
+Never push, rebase, amend published commits, or open pull requests. Never commit
+files the user did not ask to commit.
 
 ## Workflow
 
@@ -53,6 +53,8 @@ Every commit follows Conventional Commits 1.0.0:
 
 - Commit what is there. No reformatting, no unrelated cleanup, no
   "while I was here" edits.
+- Only commit changes covered by the user's request. If the scope is ambiguous,
+  stop and ask before writing anything.
 - Never commit secrets, credentials or `.env` files. Skip that group and say so.
 - Never bypass hooks (`--no-verify`). If a hook fails, fix the cause and retry;
   if the fix would touch unrelated files, stop and report instead.
