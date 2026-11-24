@@ -1,0 +1,3 @@
+interface:
+  display_name: "EOD Slack Message"
+  short_description: "Build an EOD summary from Clockify and ClickUp"

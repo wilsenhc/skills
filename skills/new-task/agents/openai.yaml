@@ -1,0 +1,5 @@
+interface:
+  display_name: "New Task"
+  short_description: "Turn a task into an investigation and implementation plan"
+policy:
+  allow_implicit_invocation: false
