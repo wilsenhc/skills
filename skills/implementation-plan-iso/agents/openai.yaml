@@ -1,0 +1,5 @@
+interface:
+  display_name: "Implementation Plan (ISO 29148)"
+  short_description: "Write a traceable ISO/IEC/IEEE 29148 implementation plan"
+policy:
+  allow_implicit_invocation: false

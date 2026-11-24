@@ -8,7 +8,8 @@ My personal agent skills, packaged for the [`skills`](https://skills.sh) CLI (`n
 | --- | --- |
 | `commit` | Groups the current changes into logical commits with Conventional Commits messages. |
 | `eod-slack` | Builds an end-of-day summary from Clockify entries and ClickUp tasks, for posting to Slack. |
-| `new-task` | Turns a task reference into a ClickUp brief, an investigation, and an implementation plan in ISO/IEC/IEEE 29148 form (Laravel projects). |
+| `implementation-plan-iso` | Writes an implementation plan as an ISO/IEC/IEEE 29148:2018 requirements specification with full traceability. |
+| `new-task` | Turns a task reference into a ClickUp brief, an investigation, and an implementation plan (Laravel projects). |
 | `update-dependencies` | Updates Composer and Node.js dependencies, bumps manifests to the installed versions, reports changes, and plans upgrades to available majors. |
 
 ## Install
@@ -59,6 +60,10 @@ skills/
 │   ├── SKILL.md
 │   └── agents/
 │       └── openai.yaml
+├── implementation-plan-iso/
+│   ├── SKILL.md
+│   └── agents/
+│       └── openai.yaml
 ├── new-task/
 │   ├── SKILL.md
 │   └── agents/
@@ -71,7 +76,7 @@ skills/
 
 Each skill is a directory with a `SKILL.md` and YAML frontmatter. The directory name matches the frontmatter `name`. Codex reads the optional `agents/openai.yaml` for its UI name and invocation policy; Claude Code and OpenCode read `disable-model-invocation` from the frontmatter.
 
-`new-task` is explicit-only on every harness: `disable-model-invocation: true` and `metadata.opencode/autoinvoke: false` in its frontmatter, plus `policy.allow_implicit_invocation: false` in its Codex metadata. `commit`, `eod-slack` and `update-dependencies` use the default auto-invocation everywhere.
+`new-task` and `implementation-plan-iso` are explicit-only on every harness: `disable-model-invocation: true` and `metadata.opencode/autoinvoke: false` in their frontmatter, plus `policy.allow_implicit_invocation: false` in their Codex metadata. `commit`, `eod-slack` and `update-dependencies` use the default auto-invocation everywhere.
 
 ## License
 
